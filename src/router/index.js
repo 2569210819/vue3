@@ -4,7 +4,7 @@
  * @Author: wanggang
  * @Date: 2024-04-01 14:16:43
  * @LastEditors: wanggang
- * @LastEditTime: 2024-04-03 18:13:22
+ * @LastEditTime: 2024-04-07 14:16:30
  */
 import { createRouter, createWebHistory } from 'vue-router'
 import ref from '../views/data/ref_reactive.vue'
@@ -13,6 +13,8 @@ import watch from '../views/watch/watch.vue'
 import hooks from '../views/hooks/hooks.vue'
 import setupComA from '../views/setupCom/comAparent.vue'
 import setupComB from '../views/setupCom/comBparent.vue'
+import setupComC from '../views/setupCom/comCParent.vue'
+import setupComD from '../views/setupCom/comDparent.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -52,6 +54,18 @@ const router = createRouter({
       name: 'setupComB',
       component: setupComB,
       meta: { title: 'setup跨代组件' }
+    },
+    {
+      path: '/setupComC',
+      name: 'setupComC',
+      component: setupComC,
+      meta: { title: '自定义v-model' }
+    },
+    {
+      path: '/setupComD',
+      name: 'setupComD',
+      component: setupComD,
+      meta: { title: '透传属性-单根点和多根点' }
     }
     // {
     //   path: '/about',
