@@ -4,7 +4,7 @@
  * @Author: wanggang
  * @Date: 2024-04-01 14:16:43
  * @LastEditors: wanggang
- * @LastEditTime: 2024-04-07 14:16:30
+ * @LastEditTime: 2024-04-08 16:25:55
  */
 import { createRouter, createWebHistory } from 'vue-router'
 import ref from '../views/data/ref_reactive.vue'
@@ -15,6 +15,9 @@ import setupComA from '../views/setupCom/comAparent.vue'
 import setupComB from '../views/setupCom/comBparent.vue'
 import setupComC from '../views/setupCom/comCParent.vue'
 import setupComD from '../views/setupCom/comDparent.vue'
+import setupComE from '../views/setupCom/comEparent.vue'
+import combinationFn from '../views/combinationFn/index.vue'
+import directive from '../views/directive/index.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -66,7 +69,26 @@ const router = createRouter({
       name: 'setupComD',
       component: setupComD,
       meta: { title: '透传属性-单根点和多根点' }
+    },
+    {
+      path: '/setupComE',
+      name: 'setupComE',
+      component: setupComE,
+      meta: { title: 'slot' }
+    },
+    {
+      path: '/combinationFn',
+      name: 'combinationFn',
+      component: combinationFn,
+      meta: { title: '组合式函数' }
+    },
+    {
+      path: '/directive',
+      name: 'directive',
+      component: directive,
+      meta: { title: '自定义指令' }
     }
+
     // {
     //   path: '/about',
     //   name: 'about',
