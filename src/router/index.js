@@ -4,7 +4,7 @@
  * @Author: wanggang
  * @Date: 2024-04-01 14:16:43
  * @LastEditors: wanggang
- * @LastEditTime: 2024-04-08 16:25:55
+ * @LastEditTime: 2024-04-10 11:31:46
  */
 import { createRouter, createWebHistory } from 'vue-router'
 import ref from '../views/data/ref_reactive.vue'
@@ -18,7 +18,10 @@ import setupComD from '../views/setupCom/comDparent.vue'
 import setupComE from '../views/setupCom/comEparent.vue'
 import combinationFn from '../views/combinationFn/index.vue'
 import directive from '../views/directive/index.vue'
-
+import routerIndex from '../views/router/index.vue'
+import routerNav from '../views/router/nav.vue'
+// import routerAddRoute from '../views/router/addRoute.vue'
+const routerLazyRoute = () => import('../views/router/lazyRoute.vue')
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -87,13 +90,34 @@ const router = createRouter({
       name: 'directive',
       component: directive,
       meta: { title: '自定义指令' }
-    }
-
+    },
+    {
+      path: '/routerIndex',
+      name: 'routerIndex',
+      component: routerIndex,
+      meta: { title: '路由导航' }
+    },
+    {
+      path: '/routerNav',
+      name: 'routerNav',
+      component: routerNav,
+      meta: { title: '路由nav' }
+    },
     // {
-    //   path: '/about',
-    //   name: 'about',
-    //   component: () => import('../views/AboutView.vue')
+    //   path: '/routerAddRoute',
+    //   name: 'routerAddRoute',
+    //   component: routerAddRoute,
+    //   meta: { title: '添加的动态路由' }
     // }
+
+    {
+      path: '/routerLazyRoute',
+      name: 'routerLazyRoute',
+      component: routerLazyRoute,
+      meta: {
+        title: '路由懒加载 > 执行函数加载'
+      }
+    }
   ]
 })
 
