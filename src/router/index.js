@@ -4,7 +4,7 @@
  * @Author: wanggang
  * @Date: 2024-04-01 14:16:43
  * @LastEditors: wanggang
- * @LastEditTime: 2024-04-10 11:31:46
+ * @LastEditTime: 2024-04-10 16:55:45
  */
 import { createRouter, createWebHistory } from 'vue-router'
 import ref from '../views/data/ref_reactive.vue'
@@ -20,6 +20,9 @@ import combinationFn from '../views/combinationFn/index.vue'
 import directive from '../views/directive/index.vue'
 import routerIndex from '../views/router/index.vue'
 import routerNav from '../views/router/nav.vue'
+import storesIndex from '../views/stores/index.vue'
+import storesComA from '../views/stores/comA.vue'
+import storesComB from '../views/stores/comB.vue'
 // import routerAddRoute from '../views/router/addRoute.vue'
 const routerLazyRoute = () => import('../views/router/lazyRoute.vue')
 const router = createRouter({
@@ -116,6 +119,30 @@ const router = createRouter({
       component: routerLazyRoute,
       meta: {
         title: '路由懒加载 > 执行函数加载'
+      }
+    },
+    {
+      path: '/storesIndex',
+      name: 'storesIndex',
+      component: storesIndex,
+      meta: {
+        title: 'pinia store index'
+      }
+    },
+    {
+      path: '/storesComA',
+      name: 'storesComA',
+      component: storesComA,
+      meta: {
+        title: 'pinia store comA'
+      }
+    },
+    {
+      path: '/storesComB',
+      name: 'storesComB',
+      component: storesComB,
+      meta: {
+        title: 'pinia store comB'
       }
     }
   ]
