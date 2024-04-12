@@ -4,7 +4,7 @@
  * @Author: wanggang
  * @Date: 2024-04-01 14:16:43
  * @LastEditors: wanggang
- * @LastEditTime: 2024-04-12 17:52:26
+ * @LastEditTime: 2024-04-12 18:24:24
  */
 import { fileURLToPath, URL } from 'node:url'
 
@@ -21,7 +21,7 @@ import { visualizer } from 'rollup-plugin-visualizer' // 打包分析图
 // 在plugins配置数组里添加
 // 引入
 import viteCompression from 'vite-plugin-compression'
-
+import AutoImport from 'unplugin-auto-import/vite'
 const time = new Date().getTime() // 当前时间戳，防止缓存
 // https://vitejs.dev/config/
 // const env = loadEnv(mode, process.cwd(), '')
@@ -47,6 +47,9 @@ export default defineConfig(({ mode }) => {
         threshold: 5120, // 压缩前最小文件大小
         algorithm: 'gzip', // 压缩算法
         ext: '.gz' // 文件类型
+      }),
+      AutoImport({
+        imports: ['vue', 'vue-router']
       })
     ],
     // 常见配置选项

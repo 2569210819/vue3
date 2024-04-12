@@ -4,7 +4,7 @@
  * @Author: wanggang
  * @Date: 2024-04-01 14:16:43
  * @LastEditors: wanggang
- * @LastEditTime: 2024-04-10 16:55:45
+ * @LastEditTime: 2024-04-12 18:29:24
  */
 import { createRouter, createWebHistory } from 'vue-router'
 import ref from '../views/data/ref_reactive.vue'
@@ -25,6 +25,8 @@ import storesComA from '../views/stores/comA.vue'
 import storesComB from '../views/stores/comB.vue'
 // import routerAddRoute from '../views/router/addRoute.vue'
 const routerLazyRoute = () => import('../views/router/lazyRoute.vue')
+const viteAutoPlugin = () => import('../views/viteAutoPlugin/index.vue')
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -143,6 +145,14 @@ const router = createRouter({
       component: storesComB,
       meta: {
         title: 'pinia store comB'
+      }
+    },
+    {
+      path: '/viteAutoPlugin',
+      name: 'viteAutoPlugin',
+      component: viteAutoPlugin,
+      meta: {
+        title: 'vite auto plugin  vue api'
       }
     }
   ]
