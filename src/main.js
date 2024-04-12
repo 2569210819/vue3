@@ -4,9 +4,10 @@
  * @Author: wanggang
  * @Date: 2024-04-01 14:16:43
  * @LastEditors: wanggang
- * @LastEditTime: 2024-04-08 16:47:59
+ * @LastEditTime: 2024-04-12 17:17:48
  */
 // import './assets/main.css'
+console.log(import.meta.env, 'import.meta.env')
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
