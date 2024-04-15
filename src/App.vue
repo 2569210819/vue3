@@ -4,12 +4,12 @@
  * @Author: wanggang
  * @Date: 2024-04-01 14:16:43
  * @LastEditors: wanggang
- * @LastEditTime: 2024-04-12 16:07:46
+ * @LastEditTime: 2024-04-15 11:01:06
 -->
 <script setup></script>
 
 <template>
-  <img src="./assets/logo.png" alt="" />
+  <!-- <img src="./assets/logo.png" alt="" /> -->
   <RouterView />
 </template>
 

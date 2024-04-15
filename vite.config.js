@@ -4,7 +4,7 @@
  * @Author: wanggang
  * @Date: 2024-04-01 14:16:43
  * @LastEditors: wanggang
- * @LastEditTime: 2024-04-12 18:24:24
+ * @LastEditTime: 2024-04-15 14:56:20
  */
 import { fileURLToPath, URL } from 'node:url'
 
@@ -22,6 +22,12 @@ import { visualizer } from 'rollup-plugin-visualizer' // 打包分析图
 // 引入
 import viteCompression from 'vite-plugin-compression'
 import AutoImport from 'unplugin-auto-import/vite'
+
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 const time = new Date().getTime() // 当前时间戳，防止缓存
 // https://vitejs.dev/config/
 // const env = loadEnv(mode, process.cwd(), '')
@@ -49,7 +55,27 @@ export default defineConfig(({ mode }) => {
         ext: '.gz' // 文件类型
       }),
       AutoImport({
-        imports: ['vue', 'vue-router']
+        imports: ['vue', 'vue-router'],
+        resolvers: [
+          ElementPlusResolver(), // Auto import icon components
+          // 自动导入图标组件
+          IconsResolver({
+            prefix: 'Icon'
+          })
+        ]
+      }),
+      Components({
+        resolvers: [
+          // 自动注册图标组件
+          IconsResolver({
+            enabledCollections: ['ep']
+          }),
+          ElementPlusResolver() // Auto register icon components
+        ]
+      }),
+      Icons({
+        autoInstall: true,
+        compiler: 'vue3'
       })
     ],
     // 常见配置选项
