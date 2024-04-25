@@ -4,7 +4,7 @@
  * @Author: wanggang
  * @Date: 2024-04-01 14:16:43
  * @LastEditors: wanggang
- * @LastEditTime: 2024-04-15 11:00:47
+ * @LastEditTime: 2024-04-24 17:11:33
  */
 import { createRouter, createWebHistory } from 'vue-router'
 import ref from '../views/data/ref_reactive.vue'
@@ -27,6 +27,7 @@ import storesComB from '../views/stores/comB.vue'
 const routerLazyRoute = () => import('../views/router/lazyRoute.vue')
 const viteAutoPlugin = () => import('../views/viteAutoPlugin/index.vue')
 const elementPlus = () => import('../views/viteAutoPlugin/elementPlus.vue')
+const NotFoundComponent = () => import('../views/404/index.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -163,6 +164,16 @@ const router = createRouter({
       meta: {
         title: 'element ui'
       }
+    },
+    {
+      path: '/404',
+      name: '404page',
+      component: NotFoundComponent
+    },
+    {
+      path: '/:pathMatch(.*)',
+      redirect: '/404',
+      hidden: true
     }
   ]
 })
